@@ -40,7 +40,7 @@ pipeline {
         stage('push docker image') {
   steps {
       sh '''docker login -u ${dockeruser} -p ${dockerpassword}
-    docker push vasthramanikanta/devopss:latest'''
+docker push vasthramanikanta/devopss:latest'''
   }
 }
         stage ('SAST'){
