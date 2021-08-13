@@ -16,11 +16,7 @@ pipeline {
   steps {
     sh 'mvn clean package'
   }
-          stage('Check Docker Version') {
-  steps {
-    sh 'docker version'
-  }
-}
+         
   post {
     always {
       archive 'target/devops.war'
