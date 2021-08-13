@@ -37,6 +37,12 @@ pipeline {
       docker image ls'''
   }
 }   
+        stage('push docker image') {
+  steps {
+    sh '''docker login -u ${dockeruser} -p ${dockerpassword}
+    docker push vasthramanikanta/devopss:latest'''
+  }
+}
         stage ('SAST'){
           parallel{
             stage ('sonar-scan'){
