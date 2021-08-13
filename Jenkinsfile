@@ -12,16 +12,16 @@ pipeline {
     git branch: 'master', credentialsId: 'GITHUB-CREDS', url: 'https://github.com/kul-samples/java_sample_webapp.git'
   }
 }
-        stage('build package') {
-            steps {
-                sh 'mvn clean package'
-            }
-            post {
-                always {
-                    archive '/target/devops.war'
-                }
-            }
-        }
+      stage('Build Package') {
+  steps {
+    sh 'mvn clean package'
+  }
+  post {
+    always {
+      archive 'target/devops.war'
+    }
+  }
+}
         stage('How are you?') {
             steps {
                 echo 'How are you?'
